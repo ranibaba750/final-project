@@ -1,152 +1,115 @@
-@keyframes animation{
-    from {width: 25px; opacity: 0;}
-    to {width: 475px; opacity: 1;}
-}
-
-#logo{
-    animation: animation ease 5s;
-}
-
 body{
-    font-family: "Poppins", serif;
-    background-color: #f1f1f1;
-    background-image: url("../images/concrete_seamless.png");
+    background-color: black;
+    margin: 0;
+    padding: 0;
+}
+
+.skip{
+    position: relative;
+    top: -40px;
+}
+
+.skip:focus{
+    position: relative;
+    top: 20px;
+}
+
+.skip a{
+    color: white;
 }
 
 header{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: black;
+    border-bottom: 5px solid white;
 }
 
-header:has(img){
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+nav li{
+    display: inline;
+    padding: 50px 20px 50px 0px;
 }
 
-.nav_links{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+nav{
+    text-align: left;
 }
 
-a:visited{
-    color: #0000FF;
+nav a{
+    color: white;
+    text-decoration: none;
+    font-size: 50%;
 }
 
-.card > header{
-    background-color: #288088;
-    border: 2px solid #45ADAD;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+nav .current{
+    text-decoration: underline;
+}
+  
+nav a:hover, a:focus{
+    background-color: lightgrey;
+    color: black;
 }
 
-.card{
-    border-radius: 50px 50px 0px 0px;
-    flex-basis: 450px;
+nav .current:hover, .current:focus{
+    background-color: blue;
+    color: white;
+    -webkit-text-decoration-style: dotted;
+    text-decoration-style: dotted;
 }
 
-.pricing{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    width: auto;
-    flex: 1 1 450px;
+footer{
+    background-color: black;
+    border-top: 5px solid white;
+    text-align: left;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 
-.gallery img{
-    border: 10px solid #50C7C7;
-    margin: 10px;
-    width: 300px;
+footer p{
+    color: white;
+    font-size: 50%;
 }
 
-.gallery{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+@media only screen and (min-width: 600px){
+    nav li{
+        padding: 50px 0px 50px 20px;
+    }
+    
+    nav{
+        text-align: right;
+        padding-bottom: 25px;
+    }
+    
+    nav a{
+        font-size: 100%;
+    }
+
+    footer{
+        text-align: right;
+    }
+    
+    footer p{
+        font-size: 100%;
+    }
 }
 
 @media only screen and (min-width: 900px){
-    
-    header{
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-    }
-
-    header:has(img){
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        justify-content: space-between;
+    nav li{
+        padding: 50px 50px 50px 0px;
     }
     
-    .nav_links{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .card{
-        border-radius: 50px 50px 0px 0px;
-        flex-basis: 275px;
-        flex-wrap: wrap;
+    nav{
+        text-align: center;
+        padding-top: 25px;
+        padding-bottom: 50px;
     }
     
-    .pricing{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-    }
-}
-
-@media only screen and (prefers-reduced-motion: reduce){
-    #logo{
-        animation: none;
-    } 
-}
-
-@media print{
-
-    @page{
-        size: portrait
+    nav a{
+        font-size: 150%;
     }
 
-    body{
-        font-family: Arial, Helvetica;
-        background-image: none;
+    footer{
+        text-align: center;
     }
-
-    #logo{
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    header{
-        align-items: unset;
-    }
-
-    .nav_links{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-    }
-
-    .pricing{
-        display: flex;
-        flex-direction: row;
-        align-items: flex-end;
-    }
-
-    .gallery{
-        display: none;
+    
+    footer p{
+        font-size: 150%;
     }
 }
