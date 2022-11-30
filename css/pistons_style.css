@@ -1,0 +1,122 @@
+.container{
+    background-color: blue;
+}
+
+img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: blue;
+    border-color: white;
+    border-style: solid;
+    border-width: 5px 0px;
+}
+
+.overview{
+    font-size: 200%;
+    text-align: center;
+    padding-bottom: 20px;
+    color: white;
+}
+
+.title{
+    font-size: 150%;
+    text-align: center;
+    background-color: red;
+    color: white;
+    border-top: 5px solid white;
+}
+
+.text-block{
+    font-size: 75%;
+    text-align: center;
+    padding-bottom: 20px;
+    color: white;
+    padding: 0px 10px;
+}
+
+.image_collection{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: blue;
+    border-color: white;
+    border-style: solid;
+    border-width: 5px 0px;
+}
+
+.image_collection img{
+    width: 150px;
+    height: auto;
+    border: none;
+}
+
+@media only screen and (min-width: 600px){
+    .title{
+        border-bottom: 5px solid white;
+    }
+    .section{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .section img{
+        width: auto;
+        height: 300px;
+        border: none;
+    }
+    .section .text-block{
+        text-align: right;
+        font-size: 125%;
+    }
+    .image_collection{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        border: none;
+    }
+    
+    .image_collection img{
+        width: 150px;
+        height: auto;
+    }
+}
+
+@media only screen and (min-width: 900px){
+    .block{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+    .section{
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        padding-bottom: none;
+        border-top: 5px solid white;
+        border-right: 5px solid white;
+    }
+    .section img{
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+    .image_collection{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    .image_collection img{
+        width: 150px;
+        height: auto;
+    }
+    .section .text-block{
+        text-align: center;
+        font-size: 150%;
+        padding-bottom: none;
+    }
+    .title{
+        border-bottom: none;
+        border-right: 5px solid white;
+        font-size: 200%;
+    }
+}
