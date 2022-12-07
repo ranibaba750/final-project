@@ -1,83 +1,229 @@
-.img_wrap{
-    position: relative;
+.flip-card {
+    background-color: transparent;
+    width: 300px;
     height: 200px;
-    width: 257px;
-}
-
-.img_description {
+    border: 1px solid #f1f1f1;
+    perspective: 1000px;
+  }
+  
+  /* This container is needed to position the front and back side */
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  /* Position the front and back side */
+  .flip-card-front, .flip-card-back {
     position: absolute;
-    border: 0 0 0 0;
-    background: blue;
-    color:beige;
-    visibility: hidden;
-    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
 
+  /*.text-block{
+    font-size: 75%;
+    text-align: center;
+    padding-bottom: 20px;
+    color: black;
+    padding: 0px 10px;
+}*/
+  
+  /* Style the front side (fallback if image is missing) */
+  .flip-card-front {
+    background-color: #bbb;
+    color: black;
+  }
+  
+  /* Style the back side */
+  .flip-card-back {
+    background-color: dodgerblue;
+    color: white;
+    transform: rotateY(180deg);
+  }
+  
+  .image_collection {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .header {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    background-color: var(--body-color);
+  }
+  .image_collection img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .gallery1 {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    background-color: rgb(252, 244, 233);
 }
+
+.fitted-gallery {
+    position: relative;
+    margin: 15px 0;
+  }
+
+.coll-image {
+    transition: .3s ease;
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 100%;
+    border: #000000 8px solid;
+  }
+
+.middle {
+    transition: .3s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+.fitted-gallery:hover .coll-image {
+    opacity: 0.3;
+    border: rgb(13, 73, 129) 15px solid;
+}
+
+.fitted-gallery:hover .middle {
+    opacity: 1;
+}
+
+.fonts {
+    font-size: 50px;
+    font-weight: bold;
+    color: #1F2F16;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.controls button:hover {
+    margin: 10px;
+    width: 90px;
+    height: 40px;
+    border: solid 2px #EDACAB;
+    border-radius: 20px;
+    font-size: 15px;
+    background-color: white;
+    color: #1F2F16;
+    display: inline-block;
+}
+
+figure {
+    margin-bottom: 50px;
+}
+
+figcaption {
+    font-size: 20px;
+    color: #000;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-gap: 10px; */
+    width: 100%; 
+    margin: auto;
+    justify-content:stretch;
+    align-items: center;
+    /* align-items: stretch; */
+    background-color: tan;
+    justify-self: center;
+    height: auto;
+}
+  
 @media only screen and (min-width: 600px){
-    .title{
-        border-bottom: 5px solid white;
-    }
-    .section{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .section img{
-        width: auto;
-        height: 300px;
-        border: none;
-    }
-    .section .text-block{
-        text-align: right;
-        font-size: 125%;
-    }
-    .image_collection{
-        display: flex;
+    .container {
+        flex-direction: row;
         flex-wrap: wrap;
-        justify-content: flex-start;
-        border: none;
+        justify-content: center;
+        align-items: center;
     }
-    
-    .image_collection img{
-        width: 150px;
-        height: auto;
+
+    div.fitted-gallery {
+        margin: 0 20px;
+    }
+
+    .coll-image {
+        border: 10px solid #000;
+    }
+
+    .fitted-gallery:hover .coll-image {
+        border: #000 17px solid;
+    }
+
+    .controls {
+        padding: 15px 0 20px;
+    }
+
+    .controls button:hover {
+        margin: 10px;
+        width: 100px;
+        height: 50px;
+        border: solid 3px #000;
+        border-radius: 25px;
+        font-size: 10px;
     }
 }
 
 @media only screen and (min-width: 900px){
-    .block{
-        display: grid;
-        grid-template-columns: 1fr 3fr;
-    }
-    .section{
-        display: grid;
-        grid-template-columns: 1fr 1.5fr;
-        padding-bottom: none;
-        border-top: 5px solid white;
-        border-right: 5px solid white;
-    }
-    .section img{
-        max-width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
-    .image_collection{
-        display: flex;
+    .container {
+        flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-evenly;
+        justify-content: center;
+        align-items: center;
     }
-    .image_collection img{
-        width: 150px;
-        height: auto;
+
+    div.fitted-gallery {
+        margin: 0 20px;
     }
-    .section .text-block{
-        text-align: center;
-        font-size: 150%;
-        padding-bottom: none;
+
+    .coll-image {
+        border: 10px solid #000;
     }
-    .title{
-        border-bottom: none;
-        border-right: 5px solid white;
-        font-size: 200%;
+
+    .fitted-gallery:hover .coll-image {
+        border: #000 17px solid;
     }
+
+    .controls {
+        padding: 15px 0 20px;
+    }
+
+    .controls button:hover {
+        margin: 15px;
+        width: 100px;
+        height: 50px;
+        border: solid 3px #EDACAB;
+        border-radius: 25px;
+        font-size: 22px;
+    }
+
 }
